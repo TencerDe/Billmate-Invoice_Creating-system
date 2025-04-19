@@ -1,0 +1,145 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf6ee; /* Light beige */
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* ===== Navbar ===== */
+  .navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ff7f50; /* Coral accent on hover */
+  }
+  
+  /* ===== Home Section ===== */
+  .home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5rem;
+    min-height: 80vh;
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+  
+  .home .description {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .home .description h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .home .description p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .home .description .btn-create {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #ff7f50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home .description .btn-create:hover {
+    background-color: #e06642;
+  }
+  
+  .home .image {
+    flex: 1;
+    max-width: 500px;
+    animation: fadeInRight 1s ease-in-out;
+  }
+  
+  .home .image img {
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  /* ===== Footer ===== */
+  .footer {
+    width: 100%;
+    background-color: #fff4e6;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      transform: translateX(60px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
