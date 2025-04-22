@@ -118,7 +118,8 @@ const CreateInvoice = () => {
           <button type="button" onClick={addNewItem}>+ Add Item</button>
         </div>
 
-        <button type="submit">Create Invoice</button>
+        <button className="custom-button">Create Invoice</button>
+
       </form>
     </div>
   );

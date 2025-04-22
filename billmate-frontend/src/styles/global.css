@@ -143,3 +143,45 @@
     }
   }
   
+/* Button styles - Modern beige theme */
+.custom-button {
+  background-color: #f5e9dc; /* light beige */
+  color: #333;
+  border: 2px solid #d4bfa8;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #e0d4c2;
+  border-color: #c2aa90;
+  color: #000;
+  transform: scale(1.03);
+}
+
+.custom-button:active {
+  transform: scale(0.97);
+}
+
+/* Modern input fields - beige themed */
+.custom-input {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid #d4bfa8;
+  border-radius: 8px;
+  background-color: #fdf6f0;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #c2aa90;
+  box-shadow: 0 0 0 3px rgba(210, 180, 140, 0.3);
+}

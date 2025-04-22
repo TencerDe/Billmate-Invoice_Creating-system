@@ -43,19 +43,19 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
-      <h2>Add Product</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-        <input name="description" placeholder="Description" value={formData.description} onChange={handleChange} />
-        <input name="hsn_code" placeholder="HSN Code" value={formData.hsn_code} onChange={handleChange} required />
-        <input name="price" type="number" placeholder="Price" value={formData.price} onChange={handleChange} required />
-        <input name="gst_rate" type="number" placeholder="GST Rate (%)" value={formData.gst_rate} onChange={handleChange} required />
-        <button type="submit">Add Product</button>
+    <div className="form-wrapper">
+      <h2 className="form-title">Add Product</h2>
+      <form onSubmit={handleSubmit} className="styled-form">
+        <input className="form-input" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+        <input className="form-input" name="description" placeholder="Description" value={formData.description} onChange={handleChange} />
+        <input className="form-input" name="hsn_code" placeholder="HSN Code" value={formData.hsn_code} onChange={handleChange} required />
+        <input className="form-input" name="price" type="number" placeholder="Price" value={formData.price} onChange={handleChange} required />
+        <input className="form-input" name="gst_rate" type="number" placeholder="GST Rate (%)" value={formData.gst_rate} onChange={handleChange} required />
+        <button className="custom-button">Add Product</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="form-message">{message}</p>}
     </div>
   );
-};
+};  
 
 export default AddProduct;

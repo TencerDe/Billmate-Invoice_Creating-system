@@ -39,17 +39,17 @@ const AddCustomer = () => {
   };
 
   return (
-    <div>
-      <h2>Add Customer</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-        <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-        <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
-        <input name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-        <input name="gstin" placeholder="GSTIN" value={formData.gstin} onChange={handleChange} />
-        <button type="submit">Add Customer</button>
+    <div className="form-wrapper">
+      <h2 className="form-title">Add Customer</h2>
+      <form onSubmit={handleSubmit} className="styled-form">
+        <input className="form-input" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+        <input className="form-input" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+        <input className="form-input" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
+        <input className="form-input" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
+        <input className="form-input" name="gstin" placeholder="GSTIN" value={formData.gstin} onChange={handleChange} />
+        <button className="custom-button">Add Customer</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="form-message">{message}</p>}
     </div>
   );
 };
