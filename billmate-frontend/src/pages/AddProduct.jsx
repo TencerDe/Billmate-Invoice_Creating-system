@@ -21,7 +21,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://127.0.0.1:12/api/add-product/', {
+    const response = await fetch('http://127.0.0.1:12/api/products/add/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

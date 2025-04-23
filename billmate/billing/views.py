@@ -166,30 +166,30 @@ def get_all_invoices(request):
         invoices = Invoice.objects.all().order_by('-date')
         data = []
 
-        for invoices in invoices:
-            items = InvoiceItem.objects.filter(invoice=Invoice)
-            item_list = []
+        for invoice in invoices:
+          items = InvoiceItem.objects.filter(invoice=invoice)
+          item_list = []
 
-            for item in items:
-                item_list.append({
-                    'product_name': item.product.name,
-                    'quantity': item.quantity,
-                    'rate': item.rate,
-                    'tax_percent': item.tax_percent,
-                    'total': item.total,
-                })
+    for item in items:
+        item_list.append({
+            'product_name': item.product.name,
+            'quantity': item.quantity,
+            'rate': item.rate,
+            'tax_percent': item.tax_percent,
+            'total': item.total,
+        })
 
-            data.append({
-                'invoice_id': Invoice.id,
-                'invoice_number': Invoice.invoice_number,
-                'customer_name': Invoice.customer.name,
-                'created_at': Invoice.created_at.strftime("%Y-%m-%d %H:%M:%S"),
-                'total_amount': Invoice.total_amount,
-                'total_tax': Invoice.total_tax,
-                'items': item_list
-            })
+    data.append({
+        'invoice_id': invoice.id,
+        'invoice_number': invoice.invoice_number,
+        'customer_name': invoice.customer.name,
+        'created_at': invoice.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+        'total_amount': invoice.total_amount,
+        'total_tax': invoice.total_tax,
+        'items': item_list
+    })
 
-        return JsonResponse({'invoices': data})
+    return JsonResponse({'invoices': data})
 
 def download_invoice(request, invoice_id):
     try:

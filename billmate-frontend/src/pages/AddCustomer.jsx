@@ -1,56 +1,76 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddCustomer = () => {
-  const [formData, setFormData] = useState({
+  const [customerData, setCustomerData] = useState({
     name: '',
-    email: '',
-    phone: '',
     address: '',
-    gstin: ''
+    gst_number: ''
   });
 
-  const [message, setMessage] = useState('');
-
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
+    setCustomerData({
+      ...customerData,
       [e.target.name]: e.target.value
-    }));
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://127.0.0.1:12/api/add-customer/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      setMessage('Customer added successfully!');
-      setFormData({ name: '', email: '', phone: '', address: '', gstin: '' });
-    } else {
-      setMessage('Error: ' + (data.message || 'Unable to add customer.'));
+    try {
+      const response = await axios.post('http://127.0.0.1:12/api/customers/add/', customerData);
+      console.log('Customer added successfully:', response.data);
+      // Reset form after submission
+      setCustomerData({ name: '', address: '', gst_number: '' });
+    } catch (error) {
+      console.error('Error adding customer:', error.response?.data || error.message);
     }
   };
 
   return (
-    <div className="form-wrapper">
-      <h2 className="form-title">Add Customer</h2>
-      <form onSubmit={handleSubmit} className="styled-form">
-        <input className="form-input" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-        <input className="form-input" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-        <input className="form-input" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
-        <input className="form-input" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-        <input className="form-input" name="gstin" placeholder="GSTIN" value={formData.gstin} onChange={handleChange} />
-        <button className="custom-button">Add Customer</button>
-      </form>
-      {message && <p className="form-message">{message}</p>}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="name"
+        value={customerData.name}
+        onChange={handleChange}
+        placeholder="Customer Name"
+        required
+      />
+      <input
+        type="text"
+        name="email"
+        value={customerData.email}
+        onChange={handleChange}
+        placeholder="Email Address"
+        required
+      />
+      <input
+        type="text"
+        name="phone"
+        value={customerData.phone}
+        onChange={handleChange}
+        placeholder="Phonen Number"
+        required
+      />
+      <input
+        type="text"
+        name="address"
+        value={customerData.address}
+        onChange={handleChange}
+        placeholder="Address"
+        required
+      />
+      <input
+        type="text"
+        name="gst_number"
+        value={customerData.gst_number}
+        onChange={handleChange}
+        placeholder="GST Number"
+      />
+      <button type="submit">Add Customer</button>
+    </form>
   );
 };
 
