@@ -51,7 +51,7 @@ const AddCustomer = () => {
         name="phone"
         value={customerData.phone}
         onChange={handleChange}
-        placeholder="Phonen Number"
+        placeholder="Phone Number"
         required
       />
       <input
